@@ -1,0 +1,33 @@
+{
+  "name": "laboration2",
+  "version": "1.0.0",
+  "description": "1DV610 - Laboration 2",
+  "type": "module",
+  "browser": "test-app/js/index.js",
+  "scripts": {
+    "test": "npx --node-options=--experimental-vm-modules jest || exit 0",
+    "lint": "npx eslint ./module/caloriesCounterForExercises.js || exit 0",
+    "lint:fix": "npx eslint ./module/caloriesCounterForExercises.js --fix || exit 0"
+  },
+  "contributors": [
+    "Daniel Carlsson <dc222bz@student.lnu.se>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@lnu/eslint-config": "^1.1.4"
+  },
+  "dependencies": {
+    "jest": "^29.0.2"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dc222bz/1DV610-Laboration2.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/dc222bz/1DV610-Laboration2/issues"
+  },
+  "homepage": "https://github.com/dc222bz/1DV610-Laboration2#readme"
+}
