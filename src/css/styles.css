@@ -15,19 +15,25 @@ body {
 }
 
 #caloriesData {
-  gap: 50px;
   padding: 10px;
   background-color: darkkhaki;
+  width: 98%;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+#exercises {
+  padding: 10px;
+  background-color: darkgoldenrod;
   width: 250px;
   height: min-content;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-#exercises {
-  gap: 50px;
+#outputContainer {
   padding: 10px;
   background-color: darkgoldenrod;
-  width: 250px;
-  height: min-content;
+  width: 98%;
+  height: 100%;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }

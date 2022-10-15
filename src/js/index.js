@@ -9,12 +9,13 @@ import './components/my-inputform/index.js'
 import './components/my-bmr/index.js'
 import './components/my-maintenancecalories/index.js'
 import './components/my-exercises/index.js'
+import './components/my-outputdata/index.js'
 
 document
   .querySelector('my-inputform')
   .addEventListener('inputform', (event) => {
-    const test = document.querySelector('my-exercises')
-    if (test !== 'undefined' && test !== null) {
+    const checkMyExercises = document.querySelector('my-exercises')
+    if (checkMyExercises !== 'undefined' && checkMyExercises !== null) {
       document.querySelectorAll('my-exercises').forEach((e) => e.remove())
     }
     const activitylevel = window.sessionStorage.getItem(
