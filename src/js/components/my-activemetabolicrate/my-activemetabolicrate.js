@@ -5,16 +5,16 @@
  * @version 1.0.0
  */
 
-import { CaloriesCounterForExercises } from '../../../../module/caloriesCounterForExercises.js'
+import { CaloriesCounter } from '../../../../module/caloriesCounter.js'
 
 // Define template.
 const template = document.createElement('template')
 template.innerHTML = `
-     <p id='maincal'>Maintenance Calories:</p>
+     <p id='maincal'>Active Metabolic Rate :</p>
  `
 
 customElements.define(
-  'my-maintenancecalories',
+  'my-activemetabolicrate',
   /**
    * Represent an username component.
    */
@@ -54,8 +54,8 @@ customElements.define(
             const activitylevel = parseFloat(
               window.sessionStorage.getItem('myapp-activitylevel')
             )
-            const person = new CaloriesCounterForExercises(height, weight, age, sex, activitylevel)
-            const maincal = person.getMaintenanceCalories()
+            const person = new CaloriesCounter(height, weight, age, sex, activitylevel)
+            const maincal = person.getActiveMetabolicRate()
             const weeklycalories = maincal * 7
             this.#maincal.textContent =
             'Maintenance Calories: ' + maincal

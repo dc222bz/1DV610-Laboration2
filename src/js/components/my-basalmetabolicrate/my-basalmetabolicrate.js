@@ -5,16 +5,16 @@
  * @version 1.0.0
  */
 
-import { CaloriesCounterForExercises } from '../../../../module/caloriesCounterForExercises.js'
+import { CaloriesCounter } from '../../../../module/caloriesCounter.js'
 
 // Define template.
 const template = document.createElement('template')
 template.innerHTML = `
-       <p id="bmr">BMR: </p>
+       <p id="bmr">Basal Metabolic Rate: </p>
 `
 
 customElements.define(
-  'my-bmr',
+  'my-basalmetabolicrate',
   /**
    * Represent an username component.
    */
@@ -46,8 +46,8 @@ customElements.define(
           const age = parseInt(window.sessionStorage.getItem('myapp-age'))
           const sex = window.sessionStorage.getItem('myapp-sex')
           const activitylevel = parseFloat(window.sessionStorage.getItem('myapp-activitylevel'))
-          const person = new CaloriesCounterForExercises(height, weight, age, sex, activitylevel)
-          this.#bmr.textContent = 'BMR: ' + person.getBMR()
+          const person = new CaloriesCounter(height, weight, age, sex, activitylevel)
+          this.#bmr.textContent = 'BMR: ' + person.getBasalMetabolicRate()
         } catch (err) {
           alert(err)
         }

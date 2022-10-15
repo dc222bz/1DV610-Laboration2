@@ -10,14 +10,14 @@
  *
  * @class
  **/
-export class CaloriesCounterForExercises {
+export class CaloriesCounter {
   #height // The height of the person.
   #weight // The weight of the person.
   #age // The age of the person.
   #sex // The sex of the person.
   #activityLevel // The activityLevel of the person.
-  #bmr // The BMR of the person.
-  #maintenanceCalories // The calories maintencance level of the person.
+  #basalmetabolicrate // The BMR of the person.
+  #activemetabolicrate // The calories maintencance level of the person.
 
   /**
    * Creates a CaloriesCounterForExercises.
@@ -34,8 +34,8 @@ export class CaloriesCounterForExercises {
     this.#setAge(age)
     this.#setSex(sex)
     this.#setActivityLevel(activityLevel)
-    this.#setBMR()
-    this.#setMaintenanceCalories()
+    this.#setBasalMetabolicRate()
+    this.#setActiveMetabolicRate()
   }
 
   /**
@@ -164,11 +164,11 @@ export class CaloriesCounterForExercises {
    * Sets the BMR of a person using the Mifflin-St Jeor formula.
    *
    */
-  #setBMR () {
+  #setBasalMetabolicRate () {
     if (this.getSex() === 'male') {
-      this.#bmr = 10 * this.getWeight() + 6.25 * this.getHeight() - 5 * this.getAge() + 5
+      this.#basalmetabolicrate = 10 * this.getWeight() + 6.25 * this.getHeight() - 5 * this.getAge() + 5
     } else if (this.getSex() === 'female') {
-      this.#bmr = 10 * this.getWeight() + 6.25 * this.getHeight() - 5 * this.getAge() - 161
+      this.#basalmetabolicrate = 10 * this.getWeight() + 6.25 * this.getHeight() - 5 * this.getAge() - 161
     } else {
       throw new Error('Invalid Sex')
     }
@@ -179,27 +179,27 @@ export class CaloriesCounterForExercises {
    *
    * @returns { number } the value of the BMR of a person (kcal/day).
    */
-  getBMR () {
-    return this.#bmr
+  getBasalMetabolicRate () {
+    return this.#basalmetabolicrate
   }
 
   /**
    * Sets the daily maintenance calories.
    *
    */
-  #setMaintenanceCalories () {
+  #setActiveMetabolicRate () {
     if (this.getActivityLevel() === 1.2) {
-      this.#maintenanceCalories = this.getBMR() * this.getActivityLevel()
+      this.#activemetabolicrate = this.getBasalMetabolicRate() * this.getActivityLevel()
     } else if (this.getActivityLevel() === 1.4) {
-      this.#maintenanceCalories = this.getBMR() * this.getActivityLevel()
+      this.#activemetabolicrate = this.getBasalMetabolicRate() * this.getActivityLevel()
     } else if (this.getActivityLevel() === 1.6) {
-      this.#maintenanceCalories = this.getBMR() * this.getActivityLevel()
+      this.#activemetabolicrate = this.getBasalMetabolicRate() * this.getActivityLevel()
     } else if (this.getActivityLevel() === 1.75) {
-      this.#maintenanceCalories = this.getBMR() * this.getActivityLevel()
+      this.#activemetabolicrate = this.getBasalMetabolicRate() * this.getActivityLevel()
     } else if (this.getActivityLevel() === 2.0) {
-      this.#maintenanceCalories = this.getBMR() * this.getActivityLevel()
+      this.#activemetabolicrate = this.getBasalMetabolicRate() * this.getActivityLevel()
     } else if (this.getActivityLevel() === 2.4) {
-      this.#maintenanceCalories = this.getBMR() * this.getActivityLevel()
+      this.#activemetabolicrate = this.getBasalMetabolicRate() * this.getActivityLevel()
     } else {
       throw new Error('Invalid Activity Level')
     }
@@ -210,8 +210,8 @@ export class CaloriesCounterForExercises {
    *
    * @returns { number } the value of the daily maintenance calories (kcal/day).
    */
-  getMaintenanceCalories () {
-    return this.#maintenanceCalories
+  getActiveMetabolicRate () {
+    return this.#activemetabolicrate
   }
 
   /**
@@ -245,7 +245,7 @@ export class CaloriesCounterForExercises {
    * @param { number } time the time in minutes.
    * @returns { number } the value of calories burned (kcal).
    */
-  caloriesWalking (time) {
+  burnedCaloriesWalking (time) {
     const mets = 3.5
     return this.#calculateCalories(mets, this.#checkInput(time))
   }
@@ -256,7 +256,7 @@ export class CaloriesCounterForExercises {
    * @param { number } time the time in minutes.
    * @returns { number } the value of calories burned (kcal).
    */
-  caloriesSwimming (time) {
+  burnedCaloriesSwimming (time) {
     const mets = 6.0
     return this.#calculateCalories(mets, this.#checkInput(time))
   }
@@ -267,7 +267,7 @@ export class CaloriesCounterForExercises {
    * @param { number } time the time in minutes.
    * @returns { number } the value of calories burned (kcal).
    */
-  caloriesRunning (time) {
+  burnedCaloriesRunning (time) {
     const mets = 10.0
     return this.#calculateCalories(mets, this.#checkInput(time))
   }
@@ -278,7 +278,7 @@ export class CaloriesCounterForExercises {
    * @param { number } time the time in minutes.
    * @returns { number } the value of calories burned (kcal).
    */
-  caloriesWeightTraining (time) {
+  burnedCaloriesWeightTraining (time) {
     const mets = 6.0
     return this.#calculateCalories(mets, this.#checkInput(time))
   }
@@ -289,7 +289,7 @@ export class CaloriesCounterForExercises {
    * @param { number } time the time in minutes.
    * @returns { number } the value of calories burned (kcal).
    */
-  caloriesBadminton (time) {
+  burnedCaloriesBadminton (time) {
     const mets = 5.5
     return this.#calculateCalories(mets, this.#checkInput(time))
   }
@@ -300,7 +300,7 @@ export class CaloriesCounterForExercises {
    * @param { number } time the time in minutes.
    * @returns { number } the value of calories burned (kcal).
    */
-  caloriesBasketball (time) {
+  burnedCaloriesBasketball (time) {
     const mets = 6.5
     return this.#calculateCalories(mets, this.#checkInput(time))
   }
@@ -311,7 +311,7 @@ export class CaloriesCounterForExercises {
    * @param { number } time the time in minutes.
    * @returns { number } the value of calories burned (kcal).
    */
-  caloriesGolf (time) {
+  burnedCaloriesGolf (time) {
     const mets = 4.8
     return this.#calculateCalories(mets, this.#checkInput(time))
   }
@@ -322,7 +322,7 @@ export class CaloriesCounterForExercises {
    * @param { number } time the time in minutes.
    * @returns { number } the value of calories burned (kcal).
    */
-  caloriesHandball (time) {
+  burnedCaloriesHandball (time) {
     const mets = 12.0
     return this.#calculateCalories(mets, this.#checkInput(time))
   }
@@ -333,7 +333,7 @@ export class CaloriesCounterForExercises {
    * @param { number } time the time in minutes.
    * @returns { number } the value of calories burned (kcal).
    */
-  caloriesIcehockey (time) {
+  burnedCaloriesIcehockey (time) {
     const mets = 8.0
     return this.#calculateCalories(mets, this.#checkInput(time))
   }
@@ -344,7 +344,7 @@ export class CaloriesCounterForExercises {
    * @param { number } time the time in minutes.
    * @returns { number } the value of calories burned (kcal).
    */
-  caloriesRollerblading (time) {
+  burnedCaloriesRollerblading (time) {
     const mets = 9.8
     return this.#calculateCalories(mets, this.#checkInput(time))
   }
@@ -355,7 +355,7 @@ export class CaloriesCounterForExercises {
    * @param { number } time the time in minutes.
    * @returns { number } the value of calories burned (kcal).
    */
-  caloriesSoccer (time) {
+  burnedCaloriesSoccer (time) {
     const mets = 7.0
     return this.#calculateCalories(mets, this.#checkInput(time))
   }
@@ -366,7 +366,7 @@ export class CaloriesCounterForExercises {
    * @param { number } time the time in minutes.
    * @returns { number } the value of calories burned (kcal).
    */
-  caloriesTennis (time) {
+  burnedCaloriesTennis (time) {
     const mets = 7.3
     return this.#calculateCalories(mets, this.#checkInput(time))
   }
@@ -377,7 +377,7 @@ export class CaloriesCounterForExercises {
    * @param { number } time the time in minutes.
    * @returns { number } the value of calories burned (kcal).
    */
-  caloriesBeachVolleyball (time) {
+  burnedCaloriesBeachVolleyball (time) {
     const mets = 8.0
     return this.#calculateCalories(mets, this.#checkInput(time))
   }

@@ -6,8 +6,8 @@
  */
 
 import './components/my-inputform/index.js'
-import './components/my-bmr/index.js'
-import './components/my-maintenancecalories/index.js'
+import './components/my-basalmetabolicrate/index.js'
+import './components/my-activemetabolicrate/index.js'
 import './components/my-exercises/index.js'
 import './components/my-outputdata/index.js'
 
