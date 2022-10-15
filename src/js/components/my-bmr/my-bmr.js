@@ -10,7 +10,7 @@ import { CaloriesCounterForExercises } from '../../../../module/caloriesCounterF
 // Define template.
 const template = document.createElement('template')
 template.innerHTML = `
-       <p id="bmr"></p>
+       <p id="bmr">BMR: </p>
 `
 
 customElements.define(
@@ -38,20 +38,16 @@ customElements.define(
 
       // Get the input, datalist and article elements in the shadow root.
       this.#bmr = this.shadowRoot.querySelector('#bmr')
-    }
 
-    /**
-     * ConnectedCallback.
-     *
-     */
-    connectedCallback () {
-      const height = parseInt(window.sessionStorage.getItem('myapp-height'))
-      const weight = parseInt(window.sessionStorage.getItem('myapp-weight'))
-      const age = parseInt(window.sessionStorage.getItem('myapp-age'))
-      const sex = window.sessionStorage.getItem('myapp-sex')
-      const activitylevel = parseFloat(window.sessionStorage.getItem('myapp-activitylevel'))
-      const person = new CaloriesCounterForExercises(height, weight, age, sex, activitylevel)
-      this.#bmr.textContent = 'BMR: ' + person.getBMR()
+      document.querySelector('my-inputform').addEventListener('inputform', (event) => {
+        const height = parseInt(window.sessionStorage.getItem('myapp-height'))
+        const weight = parseInt(window.sessionStorage.getItem('myapp-weight'))
+        const age = parseInt(window.sessionStorage.getItem('myapp-age'))
+        const sex = window.sessionStorage.getItem('myapp-sex')
+        const activitylevel = parseFloat(window.sessionStorage.getItem('myapp-activitylevel'))
+        const person = new CaloriesCounterForExercises(height, weight, age, sex, activitylevel)
+        this.#bmr.textContent = 'BMR: ' + person.getBMR()
+      })
     }
   }
 )
