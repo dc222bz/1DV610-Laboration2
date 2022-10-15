@@ -102,7 +102,7 @@ customElements.define(
         )
 
         let addCalories = 0
-        let totCalories = parseInt(window.sessionStorage.getItem('myapp-maintenancecalories'))
+        let totCalories = parseInt(window.sessionStorage.getItem('myapp-weeklycalories'))
         switch (this.#exercise.value) {
           case 'walking':
             addCalories = person.caloriesWalking(time)
