@@ -8,9 +8,9 @@ body {
 
 #inputformContainer {
   padding: 10px;
-  background-color: black;
-  color: darkkhaki;
+  background-color: lightyellow;
   width: min-content;
+  height: min-content;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
@@ -19,5 +19,15 @@ body {
   padding: 10px;
   background-color: darkkhaki;
   width: 250px;
+  height: min-content;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+#exercises {
+  gap: 50px;
+  padding: 10px;
+  background-color: darkgoldenrod;
+  width: 250px;
+  height: min-content;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
