@@ -19,8 +19,19 @@ template.innerHTML = `
         <tr>
             <td><input type="text" id="time" placeholder="Enter The Time" /></td>
             <td><select id="exercise">
+                  <option value="walking">Walking</option>
+                  <option value="swimming">Swimming</option>
+                  <option value="running">Running</option>
+                  <option value="weighttraining">WeightTraining</option>
+                  <option value="badminton">Badminton</option>
+                  <option value="basketball">Basketball</option>
                   <option value="golf">Golf</option>
+                  <option value="handball">Handball</option>
+                  <option value="icehockey">Icehockey</option>
+                  <option value="rollerblading">Rollerblading</option>
+                  <option value="soccer">Soccer</option>
                   <option value="tennis">Tennis</option>
+                  <option value="beachvolleyball">Beachvolleyball</option>
                 </select></td>
         </tr>        
     </table>
@@ -48,6 +59,11 @@ customElements.define(
     /**
      * "textfield for button"
      */
+    #exercise
+
+    /**
+     * "textfield for button"
+     */
     #burnedCalories
 
     /**
@@ -66,6 +82,7 @@ customElements.define(
       this.#time = this.shadowRoot.querySelector('#time')
       this.#button = this.shadowRoot.querySelector('#button')
       this.#burnedCalories = this.shadowRoot.querySelector('#burnedCalories')
+      this.#exercise = this.shadowRoot.querySelector('#exercise')
 
       this.#button.addEventListener('click', (event) => {
         const time = parseInt(this.#time.value)
@@ -83,7 +100,48 @@ customElements.define(
           sex,
           activitylevel
         )
-        this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesGolf(time)
+
+        switch (this.#exercise.value) {
+          case 'walking':
+            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesWalking(time)
+            break
+          case 'swimming':
+            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesSwimming(time)
+            break
+          case 'running':
+            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesRunning(time)
+            break
+          case 'weighttraining':
+            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesWeightTraining(time)
+            break
+          case 'badminton':
+            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesBadminton(time)
+            break
+          case 'basketball':
+            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesBasketball(time)
+            break
+          case 'golf':
+            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesGolf(time)
+            break
+          case 'handball':
+            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesHandball(time)
+            break
+          case 'icehockey':
+            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesIcehockey(time)
+            break
+          case 'rollerbladning':
+            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesRollerblading(time)
+            break
+          case 'soccer':
+            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesSoccer(time)
+            break
+          case 'tennis':
+            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesTennis(time)
+            break
+          case 'beachvolleyball':
+            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesBeachVolleyball(time)
+            break
+        }
       })
     }
   }
