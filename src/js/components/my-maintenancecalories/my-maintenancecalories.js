@@ -42,30 +42,28 @@ customElements.define(
       document
         .querySelector('my-inputform')
         .addEventListener('inputform', (event) => {
-          const height = parseInt(
-            window.sessionStorage.getItem('myapp-height')
-          )
-          const weight = parseInt(
-            window.sessionStorage.getItem('myapp-weight')
-          )
-          const age = parseInt(window.sessionStorage.getItem('myapp-age'))
-          const sex = window.sessionStorage.getItem('myapp-sex')
-          const activitylevel = parseFloat(
-            window.sessionStorage.getItem('myapp-activitylevel')
-          )
-          const person = new CaloriesCounterForExercises(
-            height,
-            weight,
-            age,
-            sex,
-            activitylevel
-          )
-          const maincal = person.getMaintenanceCalories()
-          const weeklycalories = maincal * 7
-          this.#maincal.textContent =
+          try {
+            const height = parseInt(
+              window.sessionStorage.getItem('myapp-height')
+            )
+            const weight = parseInt(
+              window.sessionStorage.getItem('myapp-weight')
+            )
+            const age = parseInt(window.sessionStorage.getItem('myapp-age'))
+            const sex = window.sessionStorage.getItem('myapp-sex')
+            const activitylevel = parseFloat(
+              window.sessionStorage.getItem('myapp-activitylevel')
+            )
+            const person = new CaloriesCounterForExercises(height, weight, age, sex, activitylevel)
+            const maincal = person.getMaintenanceCalories()
+            const weeklycalories = maincal * 7
+            this.#maincal.textContent =
             'Maintenance Calories: ' + maincal
-          window.sessionStorage.setItem('myapp-weeklycalories', weeklycalories)
-          this.dispatchEvent(new window.CustomEvent('addcalories'))
+            window.sessionStorage.setItem('myapp-weeklycalories', weeklycalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+          } catch (err) {
+            alert(err)
+          }
         })
     }
   }

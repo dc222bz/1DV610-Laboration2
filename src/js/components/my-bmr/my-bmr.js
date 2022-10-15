@@ -40,13 +40,17 @@ customElements.define(
       this.#bmr = this.shadowRoot.querySelector('#bmr')
 
       document.querySelector('my-inputform').addEventListener('inputform', (event) => {
-        const height = parseInt(window.sessionStorage.getItem('myapp-height'))
-        const weight = parseInt(window.sessionStorage.getItem('myapp-weight'))
-        const age = parseInt(window.sessionStorage.getItem('myapp-age'))
-        const sex = window.sessionStorage.getItem('myapp-sex')
-        const activitylevel = parseFloat(window.sessionStorage.getItem('myapp-activitylevel'))
-        const person = new CaloriesCounterForExercises(height, weight, age, sex, activitylevel)
-        this.#bmr.textContent = 'BMR: ' + person.getBMR()
+        try {
+          const height = parseInt(window.sessionStorage.getItem('myapp-height'))
+          const weight = parseInt(window.sessionStorage.getItem('myapp-weight'))
+          const age = parseInt(window.sessionStorage.getItem('myapp-age'))
+          const sex = window.sessionStorage.getItem('myapp-sex')
+          const activitylevel = parseFloat(window.sessionStorage.getItem('myapp-activitylevel'))
+          const person = new CaloriesCounterForExercises(height, weight, age, sex, activitylevel)
+          this.#bmr.textContent = 'BMR: ' + person.getBMR()
+        } catch (err) {
+          alert(err)
+        }
       })
     }
   }
