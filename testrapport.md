@@ -33,17 +33,10 @@ Matris för att visa vilka krav som täcks av vilka manuella testfall.
 
 | Testfall 2| Result|
 | --------- |:----:|
-| TC2.1     | -    | 
-| TC2.2     | -    |
-| TC2.3     | -    |
-| TC2.4     | -    |
-| TC2.5     | -    |
-| TC2.6     | -    |
-| TC2.7     | -    |
-| TC2.8     | -    |
-| TC2.9     | -    |
-| TC2.10    | -    |
-| TC2.11    | -    |
+| TC2.1     | OK    | 
+| TC2.2     | OK    |
+| TC2.3     | OK    |
+| TC2.4     | OK    |
 
 -----------------------
 **Testfall 1**
@@ -139,7 +132,7 @@ Matris för att visa vilka krav som täcks av vilka manuella testfall.
 **Input:**
 1. Anslut till applikationen, [https://caloriesCounter.netlify.app](https://caloriesCounter.netlify.app)
 2. Utför TC1.1, TC1.2, TC1.3, TC1.4, TC1.5 och TC1.6.
-3. Mata in värdet 60 i textrutan med "Enter Ur Time"
+3. Mata in värdet 60 i textrutan med "Enter The Time"
 
 **Output:**
 1. Användaren ansluts till applikationen.
@@ -179,3 +172,60 @@ Matris för att visa vilka krav som täcks av vilka manuella testfall.
 **Output:**
 1. Användaren ansluts till applikationen.
 2. Användaren har återställt alla parametrar för applikationen.
+
+-----------------------
+**Testfall 2**
+-----------------------
+**TC2.1 - [Krav 1.0](https://github.com/dc222bz/1DV610-Laboration2/blob/main/kravspecifikation.md) - Användarna försöker mata in felaktig längd via en textruta.**
+
+**Input:**
+1. Anslut till applikationen, [https://caloriesCounter.netlify.app](https://caloriesCounter.netlify.app)
+2. Mata in NaN i textrutan med texten "Enter Ur Height".
+3. Tryck på knappen "Save Inputs".
+
+**Output:**
+1. Användaren ansluts till applikationen.
+2. Användaren har matat in ett felaktigt värde för längd i applikationen.
+3. Applikationen presenterar ett alert-window med "Error: Invalid Height"
+
+**TC2.2 - [Krav 2.0](https://github.com/dc222bz/1DV610-Laboration2/blob/main/kravspecifikation.md) - Användarna försöker mata in felaktig vikt via en textruta.**
+
+**Input:**
+1. Anslut till applikationen, [https://caloriesCounter.netlify.app](https://caloriesCounter.netlify.app)
+2. Utför TC1.1.
+3. Mata in NaN i textrutan med texten "Enter Ur Weight".
+4. Tryck på knappen "Save Inputs".
+
+**Output:**
+1. Användaren ansluts till applikationen.
+2. Användaren har utfört alla tidigare steg för applikationen.
+3. Användaren har matat in ett felaktigt värde för vikt i applikationen.
+4. Applikationen presenterar ett alert-window med "Error: Invalid Weight"
+
+**TC2.3 - [Krav 3.0](https://github.com/dc222bz/1DV610-Laboration2/blob/main/kravspecifikation.md) - Användarna försöker mata in felaktig ålder via en textruta.**
+
+**Input:**
+1. Anslut till applikationen, [https://caloriesCounter.netlify.app](https://caloriesCounter.netlify.app)
+2. Utför TC1.1 och TC1.2.
+3. Mata in NaN i textrutan med texten "Enter Ur Age".
+4. Tryck på knappen "Save Inputs".
+
+**Output:**
+1. Användaren ansluts till applikationen.
+2. Användaren har utfört alla tidigare steg för applikationen.
+3. Användaren har matat in ett felaktigt värde för ålder i applikationen.
+4. Applikationen presenterar ett alert-window med "Error: Invalid Age"
+
+**TC2.4 - [Krav 4.0](https://github.com/dc222bz/1DV610-Laboration2/blob/main/kravspecifikation.md) - Användarna försöker mata felaktig tid som en träning håller på.**
+
+**Input:**
+1. Anslut till applikationen, [https://caloriesCounter.netlify.app](https://caloriesCounter.netlify.app)
+2. Utför TC1.1, TC1.2, TC1.3, TC1.4, TC1.5 och TC1.6.
+3. Mata in NaN i textrutan med texten "Enter The Time".
+4. Tryck på knappen "Save Inputs".
+
+**Output:**
+1. Användaren ansluts till applikationen.
+2. Användaren har utfört alla tidigare steg för applikationen.
+3. Användaren har matat in ett felaktigt värde för tiden i applikationen.
+4. Applikationen presenterar ett alert-window med "Error: Invalid Time"
