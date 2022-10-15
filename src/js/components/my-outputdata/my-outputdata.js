@@ -8,7 +8,7 @@
 // Define template.
 const template = document.createElement('template')
 template.innerHTML = `
-      <p id='data'>OUTPUT DATA HERE</p>
+      <p id='data'>Total Maintenance Calories: </p>
   `
 
 customElements.define(
@@ -36,6 +36,13 @@ customElements.define(
 
       // Get the input, datalist and article elements in the shadow root.
       this.#data = this.shadowRoot.querySelector('#data')
+
+      document.querySelector('my-maintenancecalories').addEventListener('addcalories', (event) => {
+        this.#data.textContent = 'Total Maintenance Calories: ' + window.sessionStorage.getItem('myapp-weeklycalories')
+      })
+      document.querySelector('#exercises').addEventListener('addcalories', (event) => {
+        this.#data.textContent = 'Total Maintenance Calories: ' + window.sessionStorage.getItem('myapp-maintenancecalories')
+      }, true)
     }
   }
 )

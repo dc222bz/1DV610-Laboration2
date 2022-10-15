@@ -60,8 +60,12 @@ customElements.define(
             sex,
             activitylevel
           )
+          const maincal = person.getMaintenanceCalories()
+          const weeklycalories = maincal * 7
           this.#maincal.textContent =
-            'Maintenance Calories: ' + person.getMaintenanceCalories()
+            'Maintenance Calories: ' + maincal
+          window.sessionStorage.setItem('myapp-weeklycalories', weeklycalories)
+          this.dispatchEvent(new window.CustomEvent('addcalories'))
         })
     }
   }

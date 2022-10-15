@@ -1,15 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
 body {
 	background-color: lightslategrey;
   color: black ;
   display: flex;
   justify-content: center;
   margin-top: 50px;
+  font-weight: bold;
+  font-family: 'Muli' ,sans-serif;
 }
 
 #inputformContainer {
   padding: 10px;
   background-color: lightyellow;
-  width: min-content;
+  width: 980px;
   height: min-content;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }

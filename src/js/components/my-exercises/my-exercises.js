@@ -101,45 +101,99 @@ customElements.define(
           activitylevel
         )
 
+        let addCalories = 0
+        let totCalories = parseInt(window.sessionStorage.getItem('myapp-maintenancecalories'))
         switch (this.#exercise.value) {
           case 'walking':
-            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesWalking(time)
+            addCalories = person.caloriesWalking(time)
+            totCalories = totCalories + addCalories
+            window.sessionStorage.setItem('myapp-maintenancecalories', totCalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+            this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
             break
           case 'swimming':
-            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesSwimming(time)
+            addCalories = person.caloriesSwimming(time)
+            totCalories = totCalories + addCalories
+            window.sessionStorage.setItem('myapp-maintenancecalories', totCalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+            this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
             break
           case 'running':
-            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesRunning(time)
+            addCalories = person.caloriesRunning(time)
+            totCalories = totCalories + addCalories
+            window.sessionStorage.setItem('myapp-maintenancecalories', totCalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+            this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
             break
           case 'weighttraining':
-            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesWeightTraining(time)
+            addCalories = person.caloriesWeightTraining(time)
+            totCalories = totCalories + addCalories
+            window.sessionStorage.setItem('myapp-maintenancecalories', totCalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+            this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
             break
           case 'badminton':
-            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesBadminton(time)
+            addCalories = person.caloriesBadminton(time)
+            totCalories = totCalories + addCalories
+            window.sessionStorage.setItem('myapp-maintenancecalories', totCalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+            this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
             break
           case 'basketball':
-            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesBasketball(time)
+            addCalories = person.caloriesBasketball(time)
+            totCalories = totCalories + addCalories
+            window.sessionStorage.setItem('myapp-maintenancecalories', totCalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+            this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
             break
           case 'golf':
-            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesGolf(time)
+            addCalories = person.caloriesGolf(time)
+            totCalories = totCalories + addCalories
+            window.sessionStorage.setItem('myapp-maintenancecalories', totCalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+            this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
             break
           case 'handball':
-            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesHandball(time)
+            addCalories = person.caloriesHandball(time)
+            totCalories = totCalories + addCalories
+            window.sessionStorage.setItem('myapp-maintenancecalories', totCalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+            this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
             break
           case 'icehockey':
-            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesIcehockey(time)
+            addCalories = person.caloriesIcehockey(time)
+            totCalories = totCalories + addCalories
+            window.sessionStorage.setItem('myapp-maintenancecalories', totCalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+            this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
             break
           case 'rollerbladning':
-            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesRollerblading(time)
+            addCalories = person.caloriesRollerblading(time)
+            totCalories = totCalories + addCalories
+            window.sessionStorage.setItem('myapp-maintenancecalories', totCalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+            this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
             break
           case 'soccer':
-            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesSoccer(time)
+            addCalories = person.caloriesSoccer(time)
+            totCalories = totCalories + addCalories
+            window.sessionStorage.setItem('myapp-maintenancecalories', totCalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+            this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
             break
           case 'tennis':
-            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesTennis(time)
+            addCalories = person.caloriesTennis(time)
+            totCalories = totCalories + addCalories
+            window.sessionStorage.setItem('myapp-maintenancecalories', totCalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+            this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
             break
           case 'beachvolleyball':
-            this.#burnedCalories.textContent = 'Burned Calories: ' + person.caloriesBeachVolleyball(time)
+            addCalories = person.caloriesBeachVolleyball(time)
+            totCalories = totCalories + addCalories
+            window.sessionStorage.setItem('myapp-maintenancecalories', totCalories)
+            this.dispatchEvent(new window.CustomEvent('addcalories'))
+            this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
             break
         }
       })

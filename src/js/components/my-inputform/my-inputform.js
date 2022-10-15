@@ -18,10 +18,17 @@ template.innerHTML = `
             <th>ActivityLevel</td>
         </tr>
         <tr>
-            <td><input type="text" id="height" placeholder="Enter Ur Height" autofocus/></td>
-            <td><input type="text" id="weight" placeholder="Enter Ur Weight" /></td>
-            <td><input type="text" id="age" placeholder="Enter Ur Age" /></td>
-            <td><select id="sex">
+            <td>
+                <input type="text" id="height" placeholder="Enter Ur Height" autofocus/>
+            </td>
+            <td>
+                <input type="text" id="weight" placeholder="Enter Ur Weight" />
+            </td>
+            <td>
+                <input type="text" id="age" placeholder="Enter Ur Age" />
+            </td>
+            <td>
+                <select id="sex">
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select></td>
@@ -33,7 +40,10 @@ template.innerHTML = `
                   <option value="2.0">Extreme (6-7 per week)</option>
                   <option value="2.4">Professional</option>
                 </select></td>
-            <td><button id="saveinputs">Save Inputs</button></td>
+            <td>
+                <button id="saveinputs">Save Inputs</button>
+                <button id="reset">Reset Inputs</button>
+            </td>
         </tr>
     </table>
     </form>
@@ -76,6 +86,11 @@ customElements.define(
     #button
 
     /**
+     * "button to store username"
+     */
+    #reset
+
+    /**
      * Creates an instance of the current type.
      */
     constructor () {
@@ -94,6 +109,7 @@ customElements.define(
       this.#sex = this.shadowRoot.querySelector('#sex')
       this.#activitylevel = this.shadowRoot.querySelector('#activitylevel')
       this.#button = this.shadowRoot.querySelector('#saveinputs')
+      this.#reset = this.shadowRoot.querySelector('#reset')
 
       // Adds eventlistener to button with click function
       this.#button.addEventListener('click', (event) => {
@@ -101,6 +117,13 @@ customElements.define(
         event.preventDefault()
         this.saveInputs()
         this.dispatchEvent(new window.CustomEvent('inputform'))
+      })
+
+      this.#reset.addEventListener('click', (event) => {
+        event.stopPropagation()
+        event.preventDefault()
+        window.sessionStorage.clear()
+        window.location.reload()
       })
     }
 
