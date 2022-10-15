@@ -5,8 +5,6 @@
  * @version 1.0.0
  */
 
-import { CaloriesCounterForExercises } from '../../../../module/caloriesCounterForExercises.js'
-
 // Define template.
 const template = document.createElement('template')
 template.innerHTML = `
@@ -23,8 +21,18 @@ template.innerHTML = `
             <td><input type="text" id="height" placeholder="Enter Ur Height" autofocus/></td>
             <td><input type="text" id="weight" placeholder="Enter Ur Weight" /></td>
             <td><input type="text" id="age" placeholder="Enter Ur Age" /></td>
-            <td><input type="text" id="sex" placeholder="Enter Ur Sex" /></td>
-            <td><input type="text" id="activitylevel" placeholder="Enter Ur ActivityLevel" /></td>
+            <td><select id="sex">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select></td>
+                <td><select id="activitylevel">
+                  <option value="1.2">None</option>
+                  <option value="1.4">Light (1-2 per week)</option>
+                  <option value="1.6">Moderate (2-3 per week)</option>
+                  <option value="1.75">Hard (3-5 per week)</option>
+                  <option value="2.0">Extreme (6-7 per week)</option>
+                  <option value="2.4">Professional</option>
+                </select></td>
             <td><button id="saveinputs">Save Inputs</button></td>
         </tr>
     </table>
@@ -91,46 +99,21 @@ customElements.define(
       this.#button.addEventListener('click', (event) => {
         event.stopPropagation()
         event.preventDefault()
-        const input = this.formatInput()
-        const person = new CaloriesCounterForExercises(input[0], input[1], input[2], input[3], input[4])
-        const bmr = this.calculateBMR(person)
-        const mainCal = this.calculateMaintenanceCalories(person)
-        this.dispatchEvent(new window.CustomEvent('inputform', { detail: { data: [bmr, mainCal] } }))
+        this.saveInputs()
+        this.dispatchEvent(new window.CustomEvent('inputform'))
       })
     }
 
     /**
-     * CalculateData.
+     * Save inputs.
      *
-     * @param {CaloriesCounterForExercises} person person.
-     * @returns {number} bmr.
      */
-    calculateBMR (person) {
-      return person.getBMR()
-    }
-
-    /**
-     * CalculateData.
-     *
-     * @param {CaloriesCounterForExercises} person person.
-     * @returns {number} maintenance calories.
-     */
-    calculateMaintenanceCalories (person) {
-      return person.getMaintenanceCalories()
-    }
-
-    /**
-     * Format inputs.
-     *
-     * @returns {Array} formated inputs.
-     */
-    formatInput () {
-      const height = parseInt(this.#height.value)
-      const weight = parseInt(this.#weight.value)
-      const age = parseInt(this.#age.value)
-      const sex = this.#sex.value
-      const activitylevel = parseFloat(this.#activitylevel.value)
-      return [height, weight, age, sex, activitylevel]
+    saveInputs () {
+      window.sessionStorage.setItem('myapp-height', this.#height.value)
+      window.sessionStorage.setItem('myapp-weight', this.#weight.value)
+      window.sessionStorage.setItem('myapp-age', this.#age.value)
+      window.sessionStorage.setItem('myapp-sex', this.#sex.value)
+      window.sessionStorage.setItem('myapp-activitylevel', this.#activitylevel.value)
     }
   }
 )
