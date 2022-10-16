@@ -58,7 +58,7 @@ customElements.define(
             const maincal = person.getActiveMetabolicRate()
             const weeklycalories = maincal * 7
             this.#maincal.textContent =
-            'Maintenance Calories: ' + maincal
+            'Active Metabolic Rate: ' + maincal
             window.sessionStorage.setItem('myapp-weeklycalories', weeklycalories)
             this.dispatchEvent(new window.CustomEvent('addcalories'))
           } catch (err) {

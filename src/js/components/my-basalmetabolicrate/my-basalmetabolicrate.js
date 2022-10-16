@@ -47,7 +47,7 @@ customElements.define(
           const sex = window.sessionStorage.getItem('myapp-sex')
           const activitylevel = parseFloat(window.sessionStorage.getItem('myapp-activitylevel'))
           const person = new CaloriesCounter(height, weight, age, sex, activitylevel)
-          this.#bmr.textContent = 'BMR: ' + person.getBasalMetabolicRate()
+          this.#bmr.textContent = 'Basal Metabolic Rate: ' + person.getBasalMetabolicRate()
         } catch (err) {
           alert(err)
         }
