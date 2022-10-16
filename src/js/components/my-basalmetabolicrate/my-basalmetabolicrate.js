@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-import { CaloriesCounter } from '../../../../module/caloriesCounter.js'
+import { CaloriesCounter } from '@dc222bz/calories-counter/caloriesCounter.js'
 
 // Define template.
 const template = document.createElement('template')

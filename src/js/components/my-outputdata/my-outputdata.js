@@ -41,7 +41,7 @@ customElements.define(
         this.#data.textContent = 'Total Maintenance Calories: ' + window.sessionStorage.getItem('myapp-weeklycalories')
       })
       document.querySelector('#exercises').addEventListener('addcalories', (event) => {
-        this.#data.textContent = 'Total Maintenance Calories: ' + window.sessionStorage.getItem('myapp-activemetabolicrate')
+        this.#data.textContent = 'Total Maintenance Calories: ' + window.sessionStorage.getItem('myapp-totcalories')
       }, true)
     }
   }

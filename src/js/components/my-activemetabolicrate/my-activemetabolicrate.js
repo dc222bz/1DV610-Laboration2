@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-import { CaloriesCounter } from '../../../../module/caloriesCounter.js'
+import { CaloriesCounter } from '@dc222bz/calories-counter/caloriesCounter.js'
 
 // Define template.
 const template = document.createElement('template')
@@ -60,6 +60,7 @@ customElements.define(
             this.#maincal.textContent =
             'Active Metabolic Rate: ' + maincal
             window.sessionStorage.setItem('myapp-weeklycalories', weeklycalories)
+            window.sessionStorage.setItem('myapp-totcalories', weeklycalories)
             this.dispatchEvent(new window.CustomEvent('addcalories'))
           } catch (err) {
             alert(err)
