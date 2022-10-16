@@ -18,7 +18,7 @@ npm install
 ```bash
 npm run dev
 ```
-```bash
+```
   VITE v3.1.8  ready in 648 ms
 
   ➜  Local:   http://127.0.0.1:5173/
@@ -27,6 +27,15 @@ npm run dev
 ## Netlify
 
 [https://calories-counter.netlify.app/](https://calories-counter.netlify.app/)
+
+# Test Documentation
+
+Test documentation for the application testing the interface and error handling:
+[Test Documentation](https://github.com/dc222bz/1DV610-Laboration2/blob/main/testrapport.md)
+
+# Requirements Specification
+
+Requirements specification for the application: [Requirements Specification](https://github.com/dc222bz/1DV610-Laboration2/blob/main/kravspecifikation.md)
 
 # Contributing
 

@@ -1,9 +1,13 @@
 # Reflection
 Daniel Carlsson - <dc222bz@student.lnu.se>
 
+Repo för Applikationen - [https://github.com/dc222bz/1DV610-Laboration2](https://github.com/dc222bz/1DV610-Laboration2)
+
+Repo för Modulen - [https://github.com/dc222bz/calories-counter](https://github.com/dc222bz/calories-counter)
+
 ## Kapitel 2 - Meaningful Names
 
-Här fick boken en att tänka till att en sådan enkel sak som ett namn på en variabel kan ge väldig stor påverkan hur en kan tolka din kod. Att undvika förkortningar och vara tydlig i vad variblen gör ska påverka namngivningen. Dessutom att classer ska namges som substantiv och metoder som verb, vilket gör det lättare att läsa koden som de vore en berättelse.
+Här fick boken en att tänka till att en sådan enkel sak som ett namn på en variabel kan ge väldig stor påverkan hur en kan tolka din kod. Att undvika förkortningar och vara tydlig i vad variblen gör ska påverka namngivningen. Dessutom att klasser ska namges som substantiv och metoder som verb, vilket gör det lättare att läsa koden som de vore en berättelse.
 
 ## Kapitel 3 - Functions
 
@@ -18,6 +22,7 @@ Här var boken tydlig att kommentarer gör mer ont än gott, när det kommer til
 Formatering är viktig för att ha förhållningsregler att kunna förhålla sig till så att andra lättare ska kunna läsa din kod. Att man till exempel håller nera kodlängden i filerna så att den ska vara mer läsbar och läsare inte ska få en vägg med text i ansiktet. Att man använder sig av tomrader för att lufta koden och göra det lättare för läsare att följa kodutvecklingen.
 
 ## Kapitel 6 - Object and Data Structures
+
 
 ## Kapitel 7 - Error handling
 
