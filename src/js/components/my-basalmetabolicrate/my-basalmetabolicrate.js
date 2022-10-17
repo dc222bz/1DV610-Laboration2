@@ -1,5 +1,5 @@
 /**
- * The my-username web component module.
+ * The my-basalmetabolicrate web component module.
  *
  * @author Daniel Carlsson <dz222bz@student.lnu.se>
  * @version 1.0.0
@@ -13,10 +13,9 @@ template.innerHTML = `
        <p id="bmr">Basal Metabolic Rate: </p>
 `
 
-customElements.define(
-  'my-basalmetabolicrate',
+customElements.define('my-basalmetabolicrate',
   /**
-   * Represent an username component.
+   * Represent a basalmetabolicrate component.
    */
   class extends HTMLElement {
     /**
@@ -30,13 +29,8 @@ customElements.define(
     constructor () {
       super()
 
-      // Attach a shadow DOM tree to this element and
-      // append the template to the shadow root.
-      this.attachShadow({ mode: 'open' }).appendChild(
-        template.content.cloneNode(true)
-      )
+      this.attachShadow({ mode: 'open' }).appendChild(template.content.cloneNode(true))
 
-      // Get the input, datalist and article elements in the shadow root.
       this.#bmr = this.shadowRoot.querySelector('#bmr')
 
       document.querySelector('my-inputform').addEventListener('inputform', (event) => {
@@ -46,6 +40,7 @@ customElements.define(
           const age = parseInt(window.sessionStorage.getItem('myapp-age'))
           const sex = window.sessionStorage.getItem('myapp-sex')
           const activitylevel = parseFloat(window.sessionStorage.getItem('myapp-activitylevel'))
+
           const person = new CaloriesCounter(height, weight, age, sex, activitylevel)
           this.#bmr.textContent = 'Basal Metabolic Rate: ' + person.getBasalMetabolicRate()
         } catch (err) {

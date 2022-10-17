@@ -5,6 +5,8 @@ Repo för Applikationen - [https://github.com/dc222bz/1DV610-Laboration2](https:
 
 Repo för Modulen - [https://github.com/dc222bz/calories-counter](https://github.com/dc222bz/calories-counter)
 
+NPM sidan - [https://www.npmjs.com/package/@dc222bz/calories-counter](https://www.npmjs.com/package/@dc222bz/calories-counter)
+
 ## Kapitel 2 - Meaningful Names
 
 Här fick boken en att tänka till att en sådan enkel sak som ett namn på en variabel kan ge väldig stor påverkan hur en kan tolka din kod. Att undvika förkortningar och vara tydlig i vad variblen gör ska påverka namngivningen. Dessutom att klasser ska namges som substantiv och metoder som verb, vilket gör det lättare att läsa koden som de vore en berättelse.

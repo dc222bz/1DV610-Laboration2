@@ -1,5 +1,5 @@
 /**
- * The my-username web component module.
+ * The my-exercises web component module.
  *
  * @author Daniel Carlsson <dz222bz@student.lnu.se>
  * @version 1.0.0
@@ -40,10 +40,9 @@ template.innerHTML = `
     <p id='burnedCalories'>BurnedCalories: </p>
  `
 
-customElements.define(
-  'my-exercises',
+customElements.define('my-exercises',
   /**
-   * Represent an username component.
+   * Represent an exercises component.
    */
   class extends HTMLElement {
     /**
@@ -57,12 +56,12 @@ customElements.define(
     #button
 
     /**
-     * "textfield for button"
+     * "textfield for exercise"
      */
     #exercise
 
     /**
-     * "textfield for button"
+     * "textfield for burnedCalories"
      */
     #burnedCalories
 
@@ -72,13 +71,8 @@ customElements.define(
     constructor () {
       super()
 
-      // Attach a shadow DOM tree to this element and
-      // append the template to the shadow root.
-      this.attachShadow({ mode: 'open' }).appendChild(
-        template.content.cloneNode(true)
-      )
+      this.attachShadow({ mode: 'open' }).appendChild(template.content.cloneNode(true))
 
-      // Get the input, datalist and article elements in the shadow root.
       this.#time = this.shadowRoot.querySelector('#time')
       this.#button = this.shadowRoot.querySelector('#button')
       this.#burnedCalories = this.shadowRoot.querySelector('#burnedCalories')
@@ -91,110 +85,85 @@ customElements.define(
           const weight = parseInt(window.sessionStorage.getItem('myapp-weight'))
           const age = parseInt(window.sessionStorage.getItem('myapp-age'))
           const sex = window.sessionStorage.getItem('myapp-sex')
-          const activitylevel = parseFloat(
-            window.sessionStorage.getItem('myapp-activitylevel')
-          )
+          const activitylevel = parseFloat(window.sessionStorage.getItem('myapp-activitylevel'))
+
           const person = new CaloriesCounter(height, weight, age, sex, activitylevel)
 
           let addCalories = 0
-          let totCalories = parseInt(window.sessionStorage.getItem('myapp-totcalories'))
+          const totCalories = parseInt(window.sessionStorage.getItem('myapp-totcalories'))
+
           switch (this.#exercise.value) {
             case 'walking':
               addCalories = person.burnedCaloriesWalking(time)
-              totCalories = totCalories + addCalories
-              window.sessionStorage.setItem('myapp-totcalories', totCalories)
-              this.dispatchEvent(new window.CustomEvent('addcalories'))
-              this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
+              this.calculateCalories(totCalories, addCalories)
               break
             case 'swimming':
               addCalories = person.burnedCaloriesSwimming(time)
-              totCalories = totCalories + addCalories
-              window.sessionStorage.setItem('myapp-totcalories', totCalories)
-              this.dispatchEvent(new window.CustomEvent('addcalories'))
-              this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
+              this.calculateCalories(totCalories, addCalories)
               break
             case 'running':
               addCalories = person.burnedCaloriesRunning(time)
-              totCalories = totCalories + addCalories
-              window.sessionStorage.setItem('myapp-totcalories', totCalories)
-              this.dispatchEvent(new window.CustomEvent('addcalories'))
-              this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
+              this.calculateCalories(totCalories, addCalories)
               break
             case 'weighttraining':
               addCalories = person.burnedCaloriesWeightTraining(time)
-              totCalories = totCalories + addCalories
-              window.sessionStorage.setItem('myapp-totcalories', totCalories)
-              this.dispatchEvent(new window.CustomEvent('addcalories'))
-              this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
+              this.calculateCalories(totCalories, addCalories)
               break
             case 'badminton':
               addCalories = person.burnedCaloriesBadminton(time)
-              totCalories = totCalories + addCalories
-              window.sessionStorage.setItem('myapp-totcalories', totCalories)
-              this.dispatchEvent(new window.CustomEvent('addcalories'))
-              this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
+              this.calculateCalories(totCalories, addCalories)
               break
             case 'basketball':
               addCalories = person.burnedCaloriesBasketball(time)
-              totCalories = totCalories + addCalories
-              window.sessionStorage.setItem('myapp-totcalories', totCalories)
-              this.dispatchEvent(new window.CustomEvent('addcalories'))
-              this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
+              this.calculateCalories(totCalories, addCalories)
               break
             case 'golf':
               addCalories = person.burnedCaloriesGolf(time)
-              totCalories = totCalories + addCalories
-              window.sessionStorage.setItem('myapp-totcalories', totCalories)
-              this.dispatchEvent(new window.CustomEvent('addcalories'))
-              this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
+              this.calculateCalories(totCalories, addCalories)
               break
             case 'handball':
               addCalories = person.burnedCaloriesHandball(time)
-              totCalories = totCalories + addCalories
-              window.sessionStorage.setItem('myapp-totcalories', totCalories)
-              this.dispatchEvent(new window.CustomEvent('addcalories'))
-              this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
+              this.calculateCalories(totCalories, addCalories)
               break
             case 'icehockey':
               addCalories = person.burnedCaloriesIcehockey(time)
-              totCalories = totCalories + addCalories
-              window.sessionStorage.setItem('myapp-totcalories', totCalories)
-              this.dispatchEvent(new window.CustomEvent('addcalories'))
-              this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
+              this.calculateCalories(totCalories, addCalories)
               break
             case 'rollerblading':
               addCalories = person.burnedCaloriesRollerblading(time)
-              totCalories = totCalories + addCalories
-              window.sessionStorage.setItem('myapp-totcalories', totCalories)
-              this.dispatchEvent(new window.CustomEvent('addcalories'))
-              this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
+              this.calculateCalories(totCalories, addCalories)
               break
             case 'soccer':
               addCalories = person.burnedCaloriesSoccer(time)
-              totCalories = totCalories + addCalories
-              window.sessionStorage.setItem('myapp-totcalories', totCalories)
-              this.dispatchEvent(new window.CustomEvent('addcalories'))
-              this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
+              this.calculateCalories(totCalories, addCalories)
               break
             case 'tennis':
               addCalories = person.burnedCaloriesTennis(time)
-              totCalories = totCalories + addCalories
-              window.sessionStorage.setItem('myapp-totcalories', totCalories)
-              this.dispatchEvent(new window.CustomEvent('addcalories'))
-              this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
+              this.calculateCalories(totCalories, addCalories)
               break
             case 'beachvolleyball':
               addCalories = person.burnedCaloriesBeachVolleyball(time)
-              totCalories = totCalories + addCalories
-              window.sessionStorage.setItem('myapp-totcalories', totCalories)
-              this.dispatchEvent(new window.CustomEvent('addcalories'))
-              this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
+              this.calculateCalories(totCalories, addCalories)
               break
           }
         } catch (err) {
           alert(err)
         }
       })
+    }
+
+    /**
+     * CalculateCalories.
+     *
+     * @param {*} totCalories total sum of calories.
+     * @param {*} addCalories calories to add.
+     */
+    calculateCalories (totCalories, addCalories) {
+      totCalories = totCalories + addCalories
+      window.sessionStorage.setItem('myapp-totcalories', totCalories)
+
+      this.dispatchEvent(new window.CustomEvent('addcalories'))
+      this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories
     }
   }
 )

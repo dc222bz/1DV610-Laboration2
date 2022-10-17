@@ -1,5 +1,5 @@
 /**
- * The my-username web component module.
+ * The my-inputform web component module.
  *
  * @author Daniel Carlsson <dz222bz@student.lnu.se>
  * @version 1.0.0
@@ -49,10 +49,9 @@ template.innerHTML = `
     </form>
 `
 
-customElements.define(
-  'my-inputform',
+customElements.define('my-inputform',
   /**
-   * Represent an username component.
+   * Represent an inputform component.
    */
   class extends HTMLElement {
     /**
@@ -86,7 +85,7 @@ customElements.define(
     #button
 
     /**
-     * "button to store username"
+     * "button to reset data"
      */
     #reset
 
@@ -96,13 +95,10 @@ customElements.define(
     constructor () {
       super()
 
-      // Attach a shadow DOM tree to this element and
-      // append the template to the shadow root.
       this.attachShadow({ mode: 'open' }).appendChild(
         template.content.cloneNode(true)
       )
 
-      // Get the input, datalist and article elements in the shadow root.
       this.#height = this.shadowRoot.querySelector('#height')
       this.#weight = this.shadowRoot.querySelector('#weight')
       this.#age = this.shadowRoot.querySelector('#age')
@@ -111,10 +107,10 @@ customElements.define(
       this.#button = this.shadowRoot.querySelector('#saveinputs')
       this.#reset = this.shadowRoot.querySelector('#reset')
 
-      // Adds eventlistener to button with click function
       this.#button.addEventListener('click', (event) => {
         event.stopPropagation()
         event.preventDefault()
+
         this.saveInputs()
         this.dispatchEvent(new window.CustomEvent('inputform'))
       })
@@ -122,6 +118,7 @@ customElements.define(
       this.#reset.addEventListener('click', (event) => {
         event.stopPropagation()
         event.preventDefault()
+
         window.sessionStorage.clear()
         window.location.reload()
       })
