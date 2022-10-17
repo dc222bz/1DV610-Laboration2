@@ -5,7 +5,6 @@
  * @version 1.0.0
  */
 
-// Define template.
 const template = document.createElement('template')
 template.innerHTML = `
     <form onSubmit="return false">

@@ -7,7 +7,6 @@
 
 import { CaloriesCounter } from '@dc222bz/calories-counter/caloriesCounter.js'
 
-// Define template.
 const template = document.createElement('template')
 template.innerHTML = `
        <form onSubmit="return false">

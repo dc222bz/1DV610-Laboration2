@@ -5,7 +5,6 @@
  * @version 1.0.0
  */
 
-// Define template.
 const template = document.createElement('template')
 template.innerHTML = `
       <p id='data'>Total Maintenance Calories: </p>
@@ -13,7 +12,7 @@ template.innerHTML = `
 
 customElements.define('my-outputdata',
   /**
-   * Represent an username component.
+   * Represent an outputdata component.
    */
   class extends HTMLElement {
     /**
