@@ -24,7 +24,7 @@ npm run dev
   ➜  Local:   http://127.0.0.1:5173/
   ➜  Network: use --host to expose
 ```
-## Netlify
+## Production
 
 [https://calories-counter.netlify.app/](https://calories-counter.netlify.app/)
 
