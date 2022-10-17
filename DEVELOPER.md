@@ -1,6 +1,6 @@
 # VISION
 
-Målet med applikationen är att förse användare med ett vertyg som kan hjälpa dem att beräkna ens kaloribehov, berorende på vilka träningsaktiviteter dem utför.
+Målet med applikationen är att förse användare med ett verktyg som kan hjälpa dem att beräkna ens kaloribehov, berorende på vilka träningsaktiviteter dem utför.
 
 # KRAV
 
