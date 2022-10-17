@@ -10,7 +10,13 @@ Kravspecifikationen hittas här: [kravspecifikation](https://github.com/dc222bz/
 
 Testning av interface hittas här: [testrapport](https://github.com/dc222bz/1DV610-Laboration2/blob/main/testrapport.md)
 
+# KODSTRUKTUR
+
+Applikationen är skriven i vanilla JS, html och css och använder sig av custum elements för att preentera funktioner till användaren, ett custom element per funktion.
+
 # FRAMTIDA FÖRBÄTTRINGAR
+
+- Att man kan ska sin egen profil och spara undan sin data, som kan återanvändas.
 
 - Att man kan implementera funktionen där användare kan skapa sina egna träningaktiviter och spara undan dessa i en databas.
 
