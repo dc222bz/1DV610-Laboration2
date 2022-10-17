@@ -28,6 +28,7 @@ npm run dev
 
 [https://calories-counter.netlify.app/](https://calories-counter.netlify.app/)
 
+![The application](./src/images/theApp.png)
 # Test Documentation
 
 Test documentation for the application testing the interface and error handling:
