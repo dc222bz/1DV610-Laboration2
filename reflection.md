@@ -3,6 +3,8 @@ Daniel Carlsson - <dc222bz@student.lnu.se>
 
 Repo för Applikationen - [https://github.com/dc222bz/1DV610-Laboration2](https://github.com/dc222bz/1DV610-Laboration2)
 
+Produktionsatt Applikation - [https://calories-counter.netlify.app/](https://calories-counter.netlify.app/)
+
 Repo för Modulen - [https://github.com/dc222bz/calories-counter](https://github.com/dc222bz/calories-counter)
 
 NPM sidan - [https://www.npmjs.com/package/@dc222bz/calories-counter](https://www.npmjs.com/package/@dc222bz/calories-counter)
@@ -118,3 +120,6 @@ Eller hur den skulle bete sig om man skulle skala upp applikationen och lägga i
 
 En viktig sak att tänka på är om man använder sig av databaser, hur dessa påverkar applikationen vid uppskalning.
 
+Här kommer custom components till sin rätta att man kan kapsla in beroenden, att skapa en component som endast skriver till och läser från databas som sedan andra componenter kan interegera med.
+
+![CustomComponents](./src/images/customComponents.png)
