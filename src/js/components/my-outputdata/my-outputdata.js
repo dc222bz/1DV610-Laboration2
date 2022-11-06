@@ -5,6 +5,8 @@
  * @version 1.0.0
  */
 
+import { Data } from '../../storage/data.js'
+
 const template = document.createElement('template')
 template.innerHTML = `
       <p id='data'>Total Maintenance Calories: </p>
@@ -33,12 +35,14 @@ customElements.define('my-outputdata',
 
       this.#data = this.shadowRoot.querySelector('#data')
 
+      const datastorage = new Data()
+
       document.querySelector('my-activemetabolicrate').addEventListener('addcalories', (event) => {
-        this.#data.textContent = 'Total Maintenance Calories: ' + window.sessionStorage.getItem('myapp-weeklycalories')
+        this.#data.textContent = 'Total Maintenance Calories: ' + datastorage.getItem('myapp-weeklycalories')
       })
 
       document.querySelector('#exercises').addEventListener('addcalories', (event) => {
-        this.#data.textContent = 'Total Maintenance Calories: ' + window.sessionStorage.getItem('myapp-totcalories')
+        this.#data.textContent = 'Total Maintenance Calories: ' + datastorage.getItem('myapp-totcalories')
       }, true)
     }
   }

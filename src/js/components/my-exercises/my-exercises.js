@@ -6,6 +6,8 @@
  */
 
 import { CaloriesCounter } from '@dc222bz/calories-counter/caloriesCounter.js'
+import { Data } from '../../storage/data.js'
+const datastorage = new Data()
 
 const template = document.createElement('template')
 template.innerHTML = `
@@ -80,16 +82,16 @@ customElements.define('my-exercises',
       this.#button.addEventListener('click', (event) => {
         try {
           const time = parseInt(this.#time.value)
-          const height = parseInt(window.sessionStorage.getItem('myapp-height'))
-          const weight = parseInt(window.sessionStorage.getItem('myapp-weight'))
-          const age = parseInt(window.sessionStorage.getItem('myapp-age'))
-          const sex = window.sessionStorage.getItem('myapp-sex')
-          const activitylevel = parseFloat(window.sessionStorage.getItem('myapp-activitylevel'))
+          const height = parseInt(datastorage.getItem('myapp-height'))
+          const weight = parseInt(datastorage.getItem('myapp-weight'))
+          const age = parseInt(datastorage.getItem('myapp-age'))
+          const sex = datastorage.getItem('myapp-sex')
+          const activitylevel = parseFloat(datastorage.getItem('myapp-activitylevel'))
 
           const person = new CaloriesCounter(height, weight, age, sex, activitylevel)
 
           let addCalories = 0
-          const totCalories = parseInt(window.sessionStorage.getItem('myapp-totcalories'))
+          const totCalories = parseInt(datastorage.getItem('myapp-totcalories'))
 
           switch (this.#exercise.value) {
             case 'walking':
@@ -159,7 +161,7 @@ customElements.define('my-exercises',
      */
     calculateCalories (totCalories, addCalories) {
       totCalories = totCalories + addCalories
-      window.sessionStorage.setItem('myapp-totcalories', totCalories)
+      datastorage.setItem('myapp-totcalories', totCalories)
 
       this.dispatchEvent(new window.CustomEvent('addcalories'))
       this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories

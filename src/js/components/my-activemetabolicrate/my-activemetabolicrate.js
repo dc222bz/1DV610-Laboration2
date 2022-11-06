@@ -6,6 +6,7 @@
  */
 
 import { CaloriesCounter } from '@dc222bz/calories-counter/caloriesCounter.js'
+import { Data } from '../../storage/data.js'
 
 const template = document.createElement('template')
 template.innerHTML = `
@@ -27,6 +28,7 @@ customElements.define('my-activemetabolicrate',
      */
     constructor () {
       super()
+      const datastorage = new Data()
 
       this.attachShadow({ mode: 'open' }).appendChild(template.content.cloneNode(true))
 
@@ -34,11 +36,11 @@ customElements.define('my-activemetabolicrate',
 
       document.querySelector('my-inputform').addEventListener('inputform', (event) => {
         try {
-          const height = parseInt(window.sessionStorage.getItem('myapp-height'))
-          const weight = parseInt(window.sessionStorage.getItem('myapp-weight'))
-          const age = parseInt(window.sessionStorage.getItem('myapp-age'))
-          const sex = window.sessionStorage.getItem('myapp-sex')
-          const activitylevel = parseFloat(window.sessionStorage.getItem('myapp-activitylevel'))
+          const height = parseInt(datastorage.getItem('myapp-height'))
+          const weight = parseInt(datastorage.getItem('myapp-weight'))
+          const age = parseInt(datastorage.getItem('myapp-age'))
+          const sex = datastorage.getItem('myapp-sex')
+          const activitylevel = parseFloat(datastorage.getItem('myapp-activitylevel'))
 
           const person = new CaloriesCounter(height, weight, age, sex, activitylevel)
           const maincal = person.getActiveMetabolicRate()
@@ -46,8 +48,8 @@ customElements.define('my-activemetabolicrate',
           const weeklycalories = maincal * 7
           this.#maincal.textContent = 'Active Metabolic Rate: ' + maincal
 
-          window.sessionStorage.setItem('myapp-weeklycalories', weeklycalories)
-          window.sessionStorage.setItem('myapp-totcalories', weeklycalories)
+          datastorage.setItem('myapp-weeklycalories', weeklycalories)
+          datastorage.setItem('myapp-totcalories', weeklycalories)
 
           this.dispatchEvent(new window.CustomEvent('addcalories'))
         } catch (err) {

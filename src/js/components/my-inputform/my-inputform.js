@@ -5,6 +5,8 @@
  * @version 1.0.0
  */
 
+import { Data } from '../../storage/data.js'
+
 const template = document.createElement('template')
 template.innerHTML = `
     <form onSubmit="return false">
@@ -128,11 +130,13 @@ customElements.define('my-inputform',
      *
      */
     saveInputs () {
-      window.sessionStorage.setItem('myapp-height', this.#height.value)
-      window.sessionStorage.setItem('myapp-weight', this.#weight.value)
-      window.sessionStorage.setItem('myapp-age', this.#age.value)
-      window.sessionStorage.setItem('myapp-sex', this.#sex.value)
-      window.sessionStorage.setItem('myapp-activitylevel', this.#activitylevel.value)
+      const datastorage = new Data()
+      datastorage.setItem('myapp-height', this.#height.value)
+      datastorage.setItem('myapp-height', this.#height.value)
+      datastorage.setItem('myapp-weight', this.#weight.value)
+      datastorage.setItem('myapp-age', this.#age.value)
+      datastorage.setItem('myapp-sex', this.#sex.value)
+      datastorage.setItem('myapp-activitylevel', this.#activitylevel.value)
     }
   }
 )
