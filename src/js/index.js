@@ -20,35 +20,21 @@ document.querySelector('my-inputform').addEventListener('inputform', (event) => 
 
   const activitylevel = window.sessionStorage.getItem('myapp-activitylevel')
 
-  switch (activitylevel) {
-    case '1.2':
-      document.querySelectorAll('my-exercises').forEach((e) => e.remove())
-      break
-    case '1.4':
-      for (let i = 0; i < 2; i++) {
-        document.querySelector('#exercises').appendChild(document.createElement('my-exercises'))
-      }
-      break
-    case '1.6':
-      for (let i = 0; i < 3; i++) {
-        document.querySelector('#exercises').appendChild(document.createElement('my-exercises'))
-      }
-      break
-    case '1.75':
-      for (let i = 0; i < 5; i++) {
-        document.querySelector('#exercises').appendChild(document.createElement('my-exercises'))
-      }
-      break
-    case '2.0':
-      for (let i = 0; i < 7; i++) {
-        document.querySelector('#exercises').appendChild(document.createElement('my-exercises'))
-      }
-      break
-    case '2.4':
-      for (let i = 0; i < 7; i++) {
-        document.querySelector('#exercises').appendChild(document.createElement('my-exercises'))
-      }
-      break
-    default:
+  const activityLevels = ['1.2', '1.4', '1.6', '1.75', '2.0', '2.4']
+  const numActivites = [0, 2, 3, 5, 7, 7]
+  let index = 0
+
+  for (let i = 0; i <= activityLevels.length; i++) {
+    if (activitylevel === activityLevels[i]) {
+      index = numActivites[i]
+    }
+  }
+
+  if (index === 0) {
+    document.querySelectorAll('my-exercises').forEach((e) => e.remove())
+  } else {
+    for (let i = 0; i < index; i++) {
+      document.querySelector('#exercises').appendChild(document.createElement('my-exercises'))
+    }
   }
 })
