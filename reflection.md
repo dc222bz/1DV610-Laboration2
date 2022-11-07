@@ -11,9 +11,9 @@ NPM sidan - [https://www.npmjs.com/package/@dc222bz/calories-counter](https://ww
 
 ## Kapitel 2 - Meaningful Names
 
-Här fick boken en att tänka till att en sådan enkel sak som ett namn på en variabel kan ge väldig stor påverkan hur en kan tolka din kod. 
+Här fick boken en att tänka till att en sådan enkel sak som ett namn på en variabel kan ge väldig stor påverkan hur en kan tolka din kod i form av läsbarhet och förstårbarhet. 
 
-Att undvika förkortningar och vara tydlig i vad variablen gör, ska påverka namngivningen. 
+Att undvika förkortningar och vara tydlig i vad variablen gör ska påverka namngivningen, för att läsaren ej ska misstolka innebörden med variablerna. 
 
 Här hade jag tidigare deklarerat getBasalMetabolicRate() som getBMR(). ![Förkortningar](./src/images/forkortningar.png)
 
@@ -55,19 +55,19 @@ Detta har man blivit bekväm med från föregånde kurser och kan hålla med bok
 
 Formatering är viktig för att ha förhållningsregler att kunna förhålla sig till så att andra lättare ska kunna läsa din kod. 
 
-Att man till exempel håller nera kodlängden i filerna så att den ska vara mer läsbar och läsare inte ska få en vägg med text i ansiktet. 
+Att man till exempel håller nera kodlängden i filerna så att den ska vara mer läsbar och läsare inte ska få en vägg med text i ansiktet, vilket ger en sämre läsbarhet. 
 
 ![fillängd](./src/images/fillangd.png)
 
-Att man använder sig av tomrader för att lufta koden och göra det lättare för läsare att följa kodutvecklingen.
+Att man använder sig av tomrader för att lufta koden och göra det lättare för läsare att följa kodutvecklingen och öka läsbarheten.
 
 ## Kapitel 6 - Object and Data Structures
 
-Att sätta sina setters till privata är en grundsten i att öka abstarktionen för sin kod. 
+Att sätta sina setters till privata är en grundsten i att öka abstarktionen för sin kod, detta för att kappsla in beroenden och styra hur användarna ska använda applikationen. 
 
 ![getterSetters](./src/images/gettersSetters.png)
 
-Dessutom att jag i mitt fall använder mig av privata fält för att öka abstarktionen i mina componenter.
+Dessutom att jag i mitt fall använder mig av privata fält för att öka abstarktionen i mina componenter. Abstraktionen ökar eftersom användaren ej kan komma åt dessa utan för själva komponenten och där med har man kappslat in dessa i komponentens egna lilla värld. Detta vill man eftersom man vill ej ha componenter som beror på andra utomstående beroenden, vilket gör komponenten svårare att använda och underhålla. Detta blir annu viktigare ju mer applikationen växer, detta kan leda till att applikationen får dålig användareupplevelse, vilket kan leda till mindre användare och slutligen en applikation utan användare. 
 
 ![privata fält](./src/images/privataFalt.png)
 
@@ -104,7 +104,11 @@ Men ska man testa ett interface är manuella tester att fördra för enkeltheten
 
 Här är målet att skriva små enkla classer som inriktar sig på en uppgift. 
 
-Att jag använder mig av egna custom components som endast inriktar sig på en sak är ett sätt följa denna riklinje. 
+Att jag använder mig av egna custom components som endast inriktar sig på en sak är ett sätt följa denna riklinje.
+
+Detta för att öka abstraktionsnivån på applikationen och kappsla in beroenden inom komponenterna.
+
+Det underlättar också om man vill använda en komponent flera gånger i applikationen eller i nån annan framtida applikation så kan den importeras in och köras direkt utan massa extra kod för att den ska fungera.
 
 ![CustomComponents](./src/images/customComponents.png)
 
