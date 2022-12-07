@@ -82,16 +82,16 @@ customElements.define('my-exercises',
       this.#button.addEventListener('click', (event) => {
         try {
           const time = parseInt(this.#time.value)
-          const height = parseInt(datastorage.getItem('myapp-height'))
-          const weight = parseInt(datastorage.getItem('myapp-weight'))
-          const age = parseInt(datastorage.getItem('myapp-age'))
-          const sex = datastorage.getItem('myapp-sex')
-          const activitylevel = parseFloat(datastorage.getItem('myapp-activitylevel'))
+          const height = parseInt(datastorage.getMyAppHeight())
+          const weight = parseInt(datastorage.getMyAppWeight())
+          const age = parseInt(datastorage.getMyAppAge())
+          const sex = datastorage.getMyAppSex()
+          const activitylevel = parseFloat(datastorage.getMyAppActivitylevel())
 
           const person = new CaloriesCounter(height, weight, age, sex, activitylevel)
 
           let addCalories = 0
-          const totCalories = parseInt(datastorage.getItem('myapp-totcalories'))
+          const totCalories = parseInt(datastorage.getMyAppTotCalories())
 
           switch (this.#exercise.value) {
             case 'walking':
