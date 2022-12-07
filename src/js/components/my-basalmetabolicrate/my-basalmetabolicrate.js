@@ -36,11 +36,11 @@ customElements.define('my-basalmetabolicrate',
 
       document.querySelector('my-inputform').addEventListener('inputform', (event) => {
         try {
-          const height = parseInt(datastorage.getItem('myapp-height'))
-          const weight = parseInt(datastorage.getItem('myapp-weight'))
-          const age = parseInt(datastorage.getItem('myapp-age'))
-          const sex = datastorage.getItem('myapp-sex')
-          const activitylevel = parseFloat(datastorage.getItem('myapp-activitylevel'))
+          const height = parseInt(datastorage.getMyAppHeight())
+          const weight = parseInt(datastorage.getMyAppWeight())
+          const age = parseInt(datastorage.getMyAppAge())
+          const sex = datastorage.getMyAppSex()
+          const activitylevel = parseFloat(datastorage.getMyAppActivityLevel())
 
           const person = new CaloriesCounter(height, weight, age, sex, activitylevel)
           this.#bmr.textContent = 'Basal Metabolic Rate: ' + person.getBasalMetabolicRate()

@@ -131,12 +131,11 @@ customElements.define('my-inputform',
      */
     saveInputs () {
       const datastorage = new Data()
-      datastorage.setItem('myapp-height', this.#height.value)
-      datastorage.setItem('myapp-height', this.#height.value)
-      datastorage.setItem('myapp-weight', this.#weight.value)
-      datastorage.setItem('myapp-age', this.#age.value)
-      datastorage.setItem('myapp-sex', this.#sex.value)
-      datastorage.setItem('myapp-activitylevel', this.#activitylevel.value)
+      datastorage.setMyAppHeight(this.#height.value)
+      datastorage.setMyAppWeight(this.#weight.value)
+      datastorage.setMyAppAge(this.#age.value)
+      datastorage.setMyAppSex(this.#sex.value)
+      datastorage.setMyAppActivityLevel(this.#activitylevel.value)
     }
   }
 )

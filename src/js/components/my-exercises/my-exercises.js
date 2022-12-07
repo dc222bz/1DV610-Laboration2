@@ -161,7 +161,7 @@ customElements.define('my-exercises',
      */
     calculateCalories (totCalories, addCalories) {
       totCalories = totCalories + addCalories
-      datastorage.setItem('myapp-totcalories', totCalories)
+      datastorage.setMyAppTotCalories(totCalories)
 
       this.dispatchEvent(new window.CustomEvent('addcalories'))
       this.#burnedCalories.textContent = 'Burned Calories: ' + addCalories

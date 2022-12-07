@@ -21,7 +21,7 @@ document.querySelector('my-inputform').addEventListener('inputform', (event) => 
     document.querySelectorAll('my-exercises').forEach((e) => e.remove())
   }
 
-  const activitylevel = datastorage.getItem('myapp-activitylevel')
+  const activitylevel = datastorage.getMyAppActivityLevel()
 
   const activityLevels = ['1.2', '1.4', '1.6', '1.75', '2.0', '2.4']
   const numActivites = [0, 2, 3, 5, 7, 7]

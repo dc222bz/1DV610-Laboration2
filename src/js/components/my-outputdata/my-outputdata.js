@@ -38,11 +38,11 @@ customElements.define('my-outputdata',
       const datastorage = new Data()
 
       document.querySelector('my-activemetabolicrate').addEventListener('addcalories', (event) => {
-        this.#data.textContent = 'Total Maintenance Calories: ' + datastorage.getItem('myapp-weeklycalories')
+        this.#data.textContent = 'Total Maintenance Calories: ' + datastorage.getMyAppWeeklyCalories()
       })
 
       document.querySelector('#exercises').addEventListener('addcalories', (event) => {
-        this.#data.textContent = 'Total Maintenance Calories: ' + datastorage.getItem('myapp-totcalories')
+        this.#data.textContent = 'Total Maintenance Calories: ' + datastorage.getMyAppTotCalories()
       }, true)
     }
   }

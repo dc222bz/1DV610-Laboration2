@@ -36,11 +36,11 @@ customElements.define('my-activemetabolicrate',
 
       document.querySelector('my-inputform').addEventListener('inputform', (event) => {
         try {
-          const height = parseInt(datastorage.getItem('myapp-height'))
-          const weight = parseInt(datastorage.getItem('myapp-weight'))
-          const age = parseInt(datastorage.getItem('myapp-age'))
-          const sex = datastorage.getItem('myapp-sex')
-          const activitylevel = parseFloat(datastorage.getItem('myapp-activitylevel'))
+          const height = parseInt(datastorage.getMyAppHeight())
+          const weight = parseInt(datastorage.getMyAppWeight())
+          const age = parseInt(datastorage.getMyAppAge())
+          const sex = datastorage.getMyAppSex()
+          const activitylevel = parseFloat(datastorage.getMyAppActivityLevel())
 
           const person = new CaloriesCounter(height, weight, age, sex, activitylevel)
           const maincal = person.getActiveMetabolicRate()
@@ -48,8 +48,8 @@ customElements.define('my-activemetabolicrate',
           const weeklycalories = maincal * 7
           this.#maincal.textContent = 'Active Metabolic Rate: ' + maincal
 
-          datastorage.setItem('myapp-weeklycalories', weeklycalories)
-          datastorage.setItem('myapp-totcalories', weeklycalories)
+          datastorage.setMyAppWeeklyCalories(weeklycalories)
+          datastorage.setMyAppTotCalories(weeklycalories)
 
           this.dispatchEvent(new window.CustomEvent('addcalories'))
         } catch (err) {
